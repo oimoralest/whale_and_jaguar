@@ -5,13 +5,13 @@ from api.models import Entity
 
 class EntityTestCase(TestCase):
     def setUp(self):
-        text = Text.objects.create(
+        self.__class__.text = Text.objects.create(
             text='''Barack Obama (born August 4, 1961) is the 44th and current
             President of the United States, and the first African American to
             hold the office.'''
         )
-        Entity.objects.create(
-            text=text,
+        self.__class__.entity = Entity.objects.create(
+            text=self.text,
             date=["August 4, 1961", "44th"],
             location=["United States"],
             keywords=["President", "current", "44th", "United", "August",
@@ -20,6 +20,9 @@ class EntityTestCase(TestCase):
             )
 
     def test_entity_id(self):
-        entity = Entity.objects.get().to_json()
-        print(entity)
-        print(entity.get('text').to_json())
+        self.assertIsNotNone(self.entity.to_json().get('id'))
+
+    def test_entity_text_id(self):
+        self.assertEqual(
+            self.entity.to_json().get('text').to_json().get('id'),
+            self.text.to_json().get('id'))
