@@ -22,7 +22,8 @@ class SentimentTestCase(TestCase):
         self.assertIsNotNone(self.sentiment.to_json().get('id'))
 
     def test_sentiment_text_id(self):
+        sentiment_text_id = self.sentiment.to_json().get('text_id')
+        text = Text.objects.get(id=sentiment_text_id)
         self.assertEqual(
-            self.sentiment.to_json().get('text').to_json().get('id'),
+            text.to_json().get('id'),
             self.text.to_json().get('id'))
-
