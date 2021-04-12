@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from pathlib import Path
 from dotenv import dotenv_values
 
+# Reads some configuration values from .env file
+CONFIG = dotenv_values('.env')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,14 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hs2gnu8dsf2p9gf@5as73=4lx$-fefd$25f(t%wy@1ww=p&ot7'
+SECRET_KEY = CONFIG.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', '192.168.99.101']
 
-CONFIG = dotenv_values('.env')
 
 
 # Application definition
