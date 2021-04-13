@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 function Entity({entity}) {
+	console.log(entity)
 	const renderData = (data) => {
 		const listItems = []
 		for (let i = 0; i < data.length; i++){
@@ -17,13 +18,13 @@ function Entity({entity}) {
 		<div>
 			<h5>Entity</h5>
 			<p>
-				{entity.date[0] ? <><b>Date: </b>{renderData(entity.date)}</> : ''}
+				{entity.date && entity.date[0] ? <><b>Date: </b>{renderData(entity.date)}</> : ''}
 				<br/>
-				{entity.keywords[0] ? <><b>Keyword: </b>{renderData(entity.keywords)}</> : ''}
+				{entity.keywords && entity.keywords[0] ? <><b>Keyword: </b>{renderData(entity.keywords)}</> : ''}
 				<br/>
-				{entity.location[0] ? <><b>Location: </b>{renderData(entity.location)}</> : ''}
+				{entity.location && entity.location[0] ? <><b>Location: </b>{renderData(entity.location)}</> : ''}
 				<br/>
-				{entity.person[0] ? <><b>Person: </b>{renderData(entity.person)}</> : ''}
+				{entity.person && entity.person[0] ? <><b>Person: </b>{renderData(entity.person)}</> : ''}
 			</p>
 		</div>
 	);
