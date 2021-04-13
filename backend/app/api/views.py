@@ -77,15 +77,14 @@ def new_text(request):
 def count_text(request, *args, **kwargs):
     length = int(request.GET.get('count', 10))
     query = Text.objects.order_by('-id')[:length]
-    texts, sentiments, entities = [], [], []
+    texts = []
     for text in query:
-        texts.append(text.to_json())
         sentiment = Sentiment.objects.get(text_id=text.id)
-        sentiments.append(sentiment.to_json())
         entity = Entity.objects.get(text_id=text.id)
-        entities.append(entity.to_json())
+        text = text.to_json()
+        text['sentiment'] = sentiment.to_json()
+        text['entity'] = entity.to_json()
+        texts.append(text)
     return JsonResponse({
         'texts': texts,
-        'sentiments': sentiments,
-        'entities': entities
     })
