@@ -23,17 +23,17 @@ class Text(Base, models.Model):
 
 class Entity(Base, models.Model):
     date = ArrayField(
-        models.CharField(max_length=128, blank=True)
+        models.CharField(max_length=128), null=True, blank=True
     )
     text = models.OneToOneField(Text, on_delete=models.CASCADE)
     location = ArrayField(
-        models.CharField(max_length=128, blank=True)
+        models.CharField(max_length=128), null=True, blank=True
     )
     keywords = ArrayField(
-        models.CharField(max_length=128, blank=True)
+        models.CharField(max_length=128), null=True, blank=True
     )
     person = ArrayField(
-        models.CharField(max_length=128, blank=True)
+        models.CharField(max_length=128), null=True, blank=True
     )
     created_at = models.DateField(auto_now_add=True)
 
