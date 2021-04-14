@@ -29,7 +29,7 @@ SECRET_KEY = CONFIG.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '192.168.99.101']
+ALLOWED_HOSTS = ['0.0.0.0', '192.168.99.101', 'localhost']
 
 # Enables CORS
 CORS_ORIGIN_ALLOW_ALL = True

@@ -14,7 +14,7 @@ function NavBar() {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const response = await axios.get(
-			`http://192.168.99.101:8000/api/v1/text/count/?count=${value}`,
+			`http://localhost:8000/api/v1/text/count/?count=${value}`,
 		);
 		dispatch({type: 'setValue', payload: response.data});
 	};
