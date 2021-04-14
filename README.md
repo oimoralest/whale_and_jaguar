@@ -2,12 +2,14 @@
 
 ## Description
 
-    This is a light app created with Django and React that uses the Text Analysis API to extract the Sentiment and the Entity from a text.
+    This is a light app created with Django and React that uses the Text Analysis API to extract
+    the Sentiment and the Entity from a text.
 
 ## Content
 
 - [backend app](./backend/app/): REST API created with Django.
 - [fronted app](./frontend/app/): Light REACT app to render the last analyzed texts with the API.
+- [How app works](./How%20app%20works.mp4): Video about how app looks and works
 
 ## Requirements
 
